@@ -1,0 +1,19 @@
+services:
+  # -------------------
+  # > Postgres storage
+  # -------------------
+  sql-injection-db:
+    container_name: psql-db
+    image: postgres:14.17
+    ports:
+      - 5432:5432
+    env_file:
+      - ../../.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U everardo.sanchezh -d psql-db"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
