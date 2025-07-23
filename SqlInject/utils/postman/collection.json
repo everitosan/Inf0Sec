@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/search?name=<script>alert(\"XSS\")</script>",
+					"raw": "http://127.0.0.1:8000/search?name=Ceci",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -27,16 +27,11 @@
 					"query": [
 						{
 							"key": "name",
+							"value": "Ceci"
+						},
+						{
+							"key": "name",
 							"value": "' OR '1'='1",
-							"disabled": true
-						},
-						{
-							"key": "name",
-							"value": "<script>alert(\"XSS\")</script>"
-						},
-						{
-							"key": "name",
-							"value": "Ceci",
 							"disabled": true
 						}
 					]
